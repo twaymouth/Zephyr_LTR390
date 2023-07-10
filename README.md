@@ -1,5 +1,8 @@
-# Zephyr_LTR390
-Zephyr Driver for LTR390 Sensor
+# Zephyr LTR390
+Zephyr Driver for LTR390 Sensor.
+
+This is a basic Zephyr driver for the liteon LTR390 sensor based on modifactions of existing drivers refrenced under license.
+
 [License](https://github.com/twaymouth/Zephyr_LTR390/edit/main/README.md#license)
 
 # License
