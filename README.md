@@ -19,7 +19,7 @@ Todo - upload data sheet
 * `bool LTR390_init(const struct device *dev)`;
   Initialization. Returns true on success, or false.
 
-* `bool LTR390_reset(void)`;
+* `bool LTR390_reset(void)`
   Performs a soft reset with a 10-ms delay. Returns true on success, or false.
 
 * `int LTR390_enable(bool en)`;
