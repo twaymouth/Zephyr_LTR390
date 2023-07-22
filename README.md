@@ -7,12 +7,47 @@ This is a basic Zephyr driver for the liteon LTR390 sensor based on modification
 
 ## License
 This code is based on the [RAKWireless LTR390 Driver](https://github.com/RAKWireless/RAK12019_LTR390/tree/main) which in turn is based on the [Adafruit_LTR390 Driver](https://github.com/adafruit/Adafruit_LTR390) with specific changes in order to work with Zephyr and improve error handling. 
- ## Documentation
-Todo - upload data sheet
- ## Installation
+ ## Hardware
+ LTR390 sensor breakout is available from a number of vendors:
+ - Adafruit - https://www.adafruit.com/product/4831
+ - Waveshare - https://www.waveshare.com/uv-sensor-c.htm
+ - Various other options from Aliexpress and the like however these are mostly clones of the Adafruit design.
+
+ For ease of use I would recomend the Adafruit breakout, the Waveshare is also nice however requires modifactions in order to function with certian microcontrollers (i.e. NRF family) due to the low value pull up resistors used. 
+
+ Both reqire modification in order to function in a truly low power mode, however due to the design of the Adafruit board these are minimal, i.e. remove the power LED and power directly from 3.3v. The Waveshare on the other hand almost all components need to be removed apart from the actual sensor and associated filter capacitors in order to achieve a low power consumption. 
  
+ ## Installation
+
+Copy LTR390.c and LTR390.h into your projects source directory and import as applicable based on your projects directory structure e.g. `#include "LTR390.h"`
 
  ## Basic Usage
+ 
+ Basic usage using sensors default power up settings and mode (Lux mode)
+ 
+ Import driver as above.
+ 
+ Declare instance of i2c device to which sensor is connected:
+ 
+ `const struct device *const i2c_dev = DEVICE_DT_GET(DT_NODELABEL(i2c0));`
+ 
+ Initalise sensor:
+ ```
+int err = LTR390_init(i2c_dev);
+if (err){
+printk("Sensor Init Err %d\n", err);
+}
+```
+Take readings
+```
+float lux = 0;
+while (!LTR390_newDataAvailable()){
+k_msleep(20);
+}
+if (!LTR390_getLUX(&lux)){
+printf("Lux read %3.2f\n", lux);
+}
+```
 
  ## Functions
 
