@@ -5,7 +5,7 @@ This is a basic Zephyr driver for the liteon LTR390 sensor based on modification
 
 Note - This is somthing I threw together for my own use, based on my testing it works as expected however my programming expertises is that of a bean dip so you have been warned. 
 
-[License](https://github.com/twaymouth/Zephyr_LTR390/edit/main/README.md#license)
+[License](https://github.com/twaymouth/Zephyr_LTR390#license#license)
 
 ## License
 This code is based on the [RAKWireless LTR390 Driver](https://github.com/RAKWireless/RAK12019_LTR390/tree/main) which in turn is based on the [Adafruit_LTR390 Driver](https://github.com/adafruit/Adafruit_LTR390) with specific changes in order to work with Zephyr and improve error handling. 
