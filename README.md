@@ -17,10 +17,10 @@ Todo - upload data sheet
  ## Functions
 
 * `bool LTR390_init(const struct device *dev)`
-  Initialization. Returns true on success, or false.
+  Verify i2c device provided is enabled, attmpts to read part ID from sensor and then enables sensor. Returns 0 if part number able to be read from sensor and sensor successfully enabled.
 
 * `bool LTR390_reset(void)`
-  Performs a soft reset with a 10-ms delay. Returns true on success, or false.
+  Performs a soft reset with a 10-ms delay. Returns 0 on success, error code on error.
 
 * `int LTR390_enable(bool en)`
   Enables or disables the light sensor, returns 0 on success.
