@@ -3,6 +3,8 @@ Zephyr Driver for LTR390 Sensor.
 
 This is a basic Zephyr driver for the liteon LTR390 sensor based on modifications of existing drivers referenced under license.
 
+Note - This is somthing I threw together for my own use, based on my testing it works as expected however my programming expertises is that of a bean dip so you have been warned. 
+
 [License](https://github.com/twaymouth/Zephyr_LTR390/edit/main/README.md#license)
 
 ## License
@@ -64,28 +66,34 @@ printf("Lux read %3.2f\n", lux);
   Reads the enabled-bit from the sensor.
 
 * `int LTR390_setMode(ltr390_mode_t mode)`
-  Sets the sensor mode to either ambient (`LTR390_MODE_ALS`) or UV (`LTR390_MODE_UVS`). Returns 0 on success
+  Sets the sensor mode to either ambient (`LTR390_MODE_ALS`) or UV (`LTR390_MODE_UVS`). Returns 0 on success.
 
 * `ltr390_mode_t LTR390_getMode(void)`
   Gets the current mode: `LTR390_MODE_UVS` or `LTR390_MODE_ALS`.
 
 * `int LTR390_setGain(ltr390_gain_t gain)`
-  Sets the sensor gain. See `ltr390_gain_t, returns 0 on success`.
+  Sets the sensor gain. Returns 0 on success.
 
 * `ltr390_gain_t LTR390_getGain(void)`
   Gets the current gain.
 
 * `int LTR390_setResolution(ltr390_resolution_t res)`
-  Sets the sensor resolution. Note: higher resolutions take longer to read. See `ltr390_resolution_t`. Returns 0 on success
+  Sets the sensor resolution. Note: higher resolutions take longer to read. See `ltr390_resolution_t`. Returns 0 on success.
 
 * `LTR390_resolution_t ltr390_getResolution(void)`
   Gets the sensor resolution.
 
+* `int LTR390_setRate(ltr390_rate_t res)`
+  Set sensor measurement rate. Returns 0 on success.
+  
+* `ltr390_rate_t LTR390_getRate(void)`
+  Get sensor measurement rate. 
+
 * `int LTR390_setThresholds(uint32_t lower, uint32_t higher)`
-  Sets the lower and upper interrupt output threshold ranges. When the sensor is below the lower threshold, or above the upper threshold, interrupt will fire. Returns 0 on success
+  Sets the lower and upper interrupt output threshold ranges. When the sensor is below the lower threshold, or above the upper threshold, interrupt will fire. Returns 0 on success.
 
 * `int LTR390_configInterrupt(bool enable, ltr390_mode_t source, uint8_t persistance = 0)`
-  Configures the interrupt based on the thresholds in `setThresholds()`. When the sensor is below the lower threshold, or above the upper threshold, interrupt will fire. Returns 0 on success
+  Configures the interrupt based on the thresholds in `setThresholds()`. When the sensor is below the lower threshold, or above the upper threshold, interrupt will fire. Returns 0 on success.
 
 * `bool LTR390_newDataAvailable(void)`
   Checks whether new data is available in the data register.
@@ -94,10 +102,10 @@ printf("Lux read %3.2f\n", lux);
   ReRead 3-bytes out of selected data register, does not check if data is new, sensor is set to correct mode or perform any conversions!. Returns 0 on success.
 
 * `int LTR390_getLUX(float *lux)`
-  Gets lux data. Returns the ambient light data in lux. Returns 0 on success
+  Gets lux data. Returns the ambient light data in lux. Returns 0 on success.
 
 * `int LTR390_getUVI(float *uvi)`
-  Gets UVI data. Returns the ultraviolet light data in uw/cm2. Returns 0 on success
+  Gets UVI data. Returns the ultraviolet light data in uw/cm2. Returns 0 on success.
 
 * `static int writeRegister(uint8_t reg, uint8_t data)`
   Writes one byte to a register. Used internally in ltr390.h
