@@ -123,7 +123,7 @@ int LTR390_enable(bool en)
   rc += readRegister(LTR390_MAIN_CTRL, &readData);
   readData >>= 1;
   readData &= 1; 
-  (readData == en) ? (rc = 0) : (rc = -EIO);
+  (readData == en) ? (rc += 0) : (rc += -EIO);
   return rc;
 }
 
