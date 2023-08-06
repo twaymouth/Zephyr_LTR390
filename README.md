@@ -17,7 +17,7 @@ This code is based on the [RAKWireless LTR390 Driver](https://github.com/RAKWire
  - Waveshare - https://www.waveshare.com/uv-sensor-c.htm
  - Various other options from Aliexpress and the like however these are mostly clones of the Adafruit design.
 
- For ease of use I would recomend the Adafruit breakout, the Waveshare is also nice however requires modifactions in order to function with certian microcontrollers (i.e. NRF family) due to the low value pull up resistors used. 
+ For ease of use I would recomend the Adafruit breakout, the Waveshare is also nice however requires modifications in order to function with certian microcontrollers (i.e. NRF family) due to the low value pull up resistors used. 
 
  Both require modification in order to function in a truly low power state, however due to the design of the Adafruit board these are minimal, i.e. remove the power LED and power directly from 3.3v. The Waveshare on the other hand almost all components need to be removed apart from the actual sensor and associated filter capacitors in order to achieve a low power consumption. 
  
