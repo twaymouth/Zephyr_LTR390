@@ -340,7 +340,7 @@ int LTR390_getUVI(float *uvi)
   printk("%3.2f Gain\n",gain_Buf[_gain]);
   printk("%3.2f Res\n",resolution_Buf[readResolution]);
   printk("%u Raw\n", raw);
-  *uvi = (float)(raw) / ((gain_Buf[_gain] / gain_Buf[LTR390_GAIN_18]) * (resolution_Buf[readResolution] / resolution_Buf[LTR390_RESOLUTION_20BIT]) * (float)(LTR390_SENSITIVITY)) * (float)(WFAC);
+  *uvi = (float)(raw) / ((gain_Buf[_gain] / gain_Buf[LTR390_GAIN_18]) * (float)(LTR390_SENSITIVITY)) * (float)(WFAC);
   return rc;
 }
 /*!
