@@ -6,9 +6,9 @@ This is a basic Zephyr driver for the liteon LTR390 sensor based on modification
 Note - This is somthing I threw together for my own use, based on my testing it works as expected however my programming expertises is that of a bean dip so you have been warned. 
 
 TBC- The readings I am recieving are off by what seems a factor of 4, this is being investigated. 
-~~This driver uses a slightly different formula to calculate the UVI compared to others, this modified formula does not take the sensors configured resolution into consideration as based on real world testing I do not believe it is required. 
+~~This driver uses a slightly different formula to calculate the UVI compared to others, this modified formula does not take the sensors configured resolution into consideration as based on real world testing I do not believe it is required.~~
 
-If the resolution is included in the calculation the calculated sensativity (counts per UVI) is incorrect and the resultant UV index value is to high. ~~
+~~If the resolution is included in the calculation the calculated sensativity (counts per UVI) is incorrect and the resultant UV index value is to high.~~
 
 ## License
 This code is based on the [RAKWireless LTR390 Driver](https://github.com/RAKWireless/RAK12019_LTR390/tree/main) which in turn is based on the [Adafruit_LTR390 Driver](https://github.com/adafruit/Adafruit_LTR390) with specific changes in order to work with Zephyr and improve error handling. 
